@@ -13,6 +13,7 @@
  * It returns the string `foofoo`
 */
 
+//change
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
