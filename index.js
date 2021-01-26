@@ -13,7 +13,6 @@
  * It returns the string `foofoo`
 */
 
-//change
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
@@ -30,10 +29,16 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   
   1. What is the difference between counter1 and counter2?
   
+    Let in counter one is scoped within the function counterMaker(),  the let variable in counter2 is globally scoped.
+
   2. Which of the two uses a closure? How can you tell?
   
+    Counter1 uses a closure because the function counter() needs to be closed in order to find the variable count.
+
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+
+    Counter1 would be preferable if you dont want let count to be able to be manipulated outside of the function counterMaker().
 */
 
 // counter1 code
@@ -63,10 +68,10 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(maxInning){
+    return Math.floor(Math.random() * Math.floor(4));
 }
-
+console.log(inning());
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -82,9 +87,27 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inning, numOfInning) {
+    let homeScore = 0;
+    let awayScore = 0;
+
+   
+
+    for (let i = 0; i < numOfInning; i++) {
+        homeScore = homeScore + inning();
+        awayScore = awayScore + inning();
+    }
+
+    let scoreObject = {
+        "Home": homeScore,
+        "Away": awayScore
+    }
+  
+    return scoreObject;
 }
+
+
+    
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
